@@ -1,17 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 // CSS
 import './App.css';
 // COMPONENTS
 import Form from "./components/Form";
 import Header from "./components/Header";
 import { useState } from 'react';
+import TodosList from "./components/TodosList";
 
 
 const App= ()=> {
 
   const [input , setInput] =useState(" ");
   const [todos, setTodos] = useState([]);
-
+  const [editTodo, setEditTodo] = useState(null);
 
   return (
   <div className="container">
@@ -25,6 +26,15 @@ const App= ()=> {
             setInput={setInput}
             todos={todos}
             setTodos={setTodos}
+            editTodo={editTodo}
+            setEditTodo={setEditTodo}
+          />
+        </div>
+        <div>
+          <TodosList
+            todos={todos} 
+            setTodos={setTodos} 
+            setEditTodo={setEditTodo} 
           />
         </div>
       </div>
